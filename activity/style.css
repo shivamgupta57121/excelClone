@@ -16,12 +16,13 @@ body {
     border: 1px solid red;
 }
 
-.grid {
+.grid-container {
     height: calc(100vh - (5rem + 2rem + 2.5rem));
     background-color: lightgreen;
+    overflow: auto;
 }
 
-.sheets-conatiner {
+.sheets-container {
     height: 2.5rem;
     display: flex;
 }
@@ -38,21 +39,64 @@ body {
     width: 95%;
     border: 1px solid;
     display: flex;
+    overflow-x: auto;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sheet-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.sheet-list {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .sheet {
     border: 1px solid;
     height: 100%;
-    width: 5rem;
+    min-width: 5rem;
     padding-top: 0.5rem;
     padding-left: 0.6rem;
-    background-color: lightgray;
+    background-color: lightgrey;
 }
 
 .icon {
     font-size: 1.2rem;
 }
 
-.active{
+.active {
     background-color: white;
+}
+
+/* grid */
+
+.top-left_block {
+    background-color: lightgray;
+}
+
+.block {
+    border: 1px solid;
+    width: 2rem;
+    height: 2rem;
+    text-align: center
+}
+
+.top-row {
+    border: 1px solid;
+    display: flex;
+}
+
+.cell {
+    height: 2rem;
+    border: 1px solid;
+    min-width: 5rem;
+    text-align: center;
+}
+
+.row {
+    display: flex;
 }
