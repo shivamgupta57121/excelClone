@@ -1,0 +1,58 @@
+body {
+    margin: 0px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.menu-container {
+    height: 5rem;
+    border: 1px solid red;
+}
+
+.formula-container {
+    height: 2rem;
+    border: 1px solid red;
+}
+
+.grid {
+    height: calc(100vh - (5rem + 2rem + 2.5rem));
+    background-color: lightgreen;
+}
+
+.sheets-conatiner {
+    height: 2.5rem;
+    display: flex;
+}
+
+.icon-container {
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+}
+
+.sheet-list {
+    width: 95%;
+    border: 1px solid;
+    display: flex;
+}
+
+.sheet {
+    border: 1px solid;
+    height: 100%;
+    width: 5rem;
+    padding-top: 0.5rem;
+    padding-left: 0.6rem;
+    background-color: lightgray;
+}
+
+.icon {
+    font-size: 1.2rem;
+}
+
+.active{
+    background-color: white;
+}
