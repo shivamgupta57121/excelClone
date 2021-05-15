@@ -42,8 +42,8 @@ for (let i = 0; i < rows; i++) {
             isUnderline: false,
             fontSize: 16,
             fontFamily: "sans-serif",
-            color: "black",
-            bgColor: "lightgreen",
+            color: "#000000",
+            bgColor: "#90EE90",
             halign:"center"
         }
         rowArr.push(cellObj);

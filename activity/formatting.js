@@ -6,6 +6,8 @@ let underline = document.querySelector(".fa-underline");
 let fontSize = document.querySelector(".font-size");
 let fontFamily = document.querySelector(".font-family");
 let alignmentbtns = document.querySelectorAll(".alignment-container>*");
+let color = document.querySelector(".color");
+let bgColor = document.querySelector(".bg-color");
 
 bold.addEventListener("click", function () {
     // ui elemnt
@@ -84,6 +86,26 @@ fontFamily.addEventListener("change", function () {
     // cell Object update
     cellObj.fontFamily = cfontFamily;
 });
+color.addEventListener("change", function () {
+    let selectedColor = color.value;
+    uiCell = getcell();
+    let { rid, cid } = getRIdCIdfromAddress();
+    let cellObj = sheetArr[rid][cid];
+    // ui change
+    uiCell.style.color = selectedColor;
+    // cell Object update
+    cellObj.color = selectedColor;
+});
+bgColor.addEventListener("change", function () {
+    let selectedColor = bgColor.value;
+    uiCell = getcell();
+    let { rid, cid } = getRIdCIdfromAddress();
+    let cellObj = sheetArr[rid][cid];
+    // ui change
+    uiCell.style.backgroundColor = selectedColor;
+    // cell Object update
+    cellObj.bgColor = selectedColor;
+});
 
 // to return current cell element
 function getcell() {
@@ -156,6 +178,8 @@ for (let i = 0; i < Allcells.length; i++) {
                 alignmentbtns[j].classList.add("menu-active");
             }
         }
+        color.value = cellObj.color;
+        bgColor.value = cellObj.bgColor;
     });
 }
 Allcells[0].click();
