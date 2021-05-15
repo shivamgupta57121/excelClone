@@ -5,6 +5,7 @@ let italic = document.querySelector(".fa-italic");
 let underline = document.querySelector(".fa-underline");
 let fontSize = document.querySelector(".font-size");
 let fontFamily = document.querySelector(".font-family");
+let alignmentbtns = document.querySelectorAll(".alignment-container>*");
 
 bold.addEventListener("click", function () {
     // ui elemnt
@@ -103,6 +104,22 @@ function getRIdCIdfromAddress() {
     return { cid, rid };
 }
 
+// add event to alignment btn
+for (let i = 0; i < alignmentbtns.length; i++) {
+    alignmentbtns[i].onclick = function () {
+        let uiCell = getcell();
+        let { rid, cid } = getRIdCIdfromAddress();
+        let cellObj = sheetArr[rid][cid];
+        let newAlignment = alignmentbtns[i].getAttribute("direct")
+        uiCell.style.textAlign = newAlignment;
+        for (let j = 0; j < alignmentbtns.length; j++) {
+            alignmentbtns[j].classList.remove("menu-active");
+        }
+        alignmentbtns[i].classList.add("menu-active");
+        cellObj.halign = newAlignment;
+    }
+}
+
 for (let i = 0; i < Allcells.length; i++) {
     Allcells[i].addEventListener("click", function () {
         let cid = Allcells[i].getAttribute("cid");
@@ -132,6 +149,13 @@ for (let i = 0; i < Allcells.length; i++) {
         }
         fontSize.value = cellObj.fontSize;
         fontFamily.value = cellObj.fontFamily;
+        for (let j = 0; j < alignmentbtns.length; j++) {
+            alignmentbtns[j].classList.remove("menu-active");
+            let cAlignment = alignmentbtns[j].getAttribute("direct");
+            if (cAlignment == cellObj.halign) {
+                alignmentbtns[j].classList.add("menu-active");
+            }
+        }
     });
 }
 Allcells[0].click();
