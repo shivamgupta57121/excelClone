@@ -6,20 +6,77 @@ body {
     box-sizing: border-box;
 }
 
-.menu-container {
-    height: 5rem;
-    border: 1px solid red;
+.formula-container {
+    /* border: 1px solid red; */
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+    background-color: rgb(178, 245, 178);
 }
 
-.formula-container {
-    height: 2rem;
-    border: 1px solid red;
+.formula-container>* {
+    height: 74%;
+}
+
+.address {
+    width: 12%;
+}
+
+.formula {
+    width: 74%;
 }
 
 .grid-container {
-    height: calc(100vh - (5rem + 2rem + 2.5rem));
+    height: calc(100vh - (3rem + 2rem + 2.5rem));
     background-color: lightgreen;
     overflow: auto;
+    position: relative;
+}
+
+/* grid */
+
+.top-left_block {
+    background-color: lightgray;
+}
+
+.block {
+    border: 1px solid;
+    width: 2rem;
+    height: 2rem;
+    text-align: center
+}
+
+.top-row {
+    /* border: 1px solid; */
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 30px;
+}
+
+.grid {
+    position: absolute;
+    top: 33px;
+    left: 31px;
+}
+
+.left-col {
+    position: absolute;
+    top: 33px;
+}
+
+.cell {
+    height: 2rem;
+    border: 1px solid;
+    min-width: 5rem;
+    text-align: center;
+    max-width: 5rem;
+}
+
+.row {
+    display: flex;
 }
 
 .sheets-container {
@@ -37,6 +94,7 @@ body {
 
 .sheet-list {
     width: 95%;
+    height: 100%;
     border: 1px solid;
     display: flex;
     overflow-x: auto;
@@ -70,33 +128,4 @@ body {
 
 .active {
     background-color: white;
-}
-
-/* grid */
-
-.top-left_block {
-    background-color: lightgray;
-}
-
-.block {
-    border: 1px solid;
-    width: 2rem;
-    height: 2rem;
-    text-align: center
-}
-
-.top-row {
-    border: 1px solid;
-    display: flex;
-}
-
-.cell {
-    height: 2rem;
-    border: 1px solid;
-    min-width: 5rem;
-    text-align: center;
-}
-
-.row {
-    display: flex;
 }
