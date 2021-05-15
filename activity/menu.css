@@ -36,7 +36,8 @@
 
  .nos-container,
  .formatting-container,
- .alignment-container {
+ .alignment-container,
+ .color-container {
      display: flex;
      justify-content: space-evenly;
      align-items: center;

@@ -38,8 +38,13 @@ for (let i = 0; i < rows; i++) {
 
         let cellObj = {
             isBold: false,
-            // isItalic: false,
-            // isUnderline: false
+            isItalic: false,
+            isUnderline: false,
+            fontSize: 16,
+            fontFamily: "sans-serif",
+            color: "black",
+            bgColor: "lightgreen",
+            halign:"center"
         }
         rowArr.push(cellObj);
     }

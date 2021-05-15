@@ -3,6 +3,8 @@ let addressElem = document.querySelector(".address");
 let bold = document.querySelector(".fa-bold");
 let italic = document.querySelector(".fa-italic");
 let underline = document.querySelector(".fa-underline");
+let fontSize = document.querySelector(".font-size");
+let fontFamily = document.querySelector(".font-family");
 
 bold.addEventListener("click", function () {
     // ui elemnt
@@ -61,6 +63,26 @@ underline.addEventListener("click", function () {
         cellObj.isUnderline = true;
     }
 });
+fontSize.addEventListener("change", function () {
+    let cfontSize = fontSize.value;
+    let uiCell = getcell();
+    let { rid, cid } = getRIdCIdfromAddress();
+    let cellObj = sheetArr[rid][cid];
+    // ui change
+    uiCell.style.fontSize = cfontSize + "px";
+    // cell Object update
+    cellObj.fontSize = cfontSize;
+});
+fontFamily.addEventListener("change", function () {
+    let cfontFamily = fontFamily.value;
+    let uiCell = getcell();
+    let { rid, cid } = getRIdCIdfromAddress();
+    let cellObj = sheetArr[rid][cid];
+    // ui change
+    uiCell.style.fontFamily = cfontFamily;
+    // cell Object update
+    cellObj.fontFamily = cfontFamily;
+});
 
 // to return current cell element
 function getcell() {
@@ -90,6 +112,7 @@ for (let i = 0; i < Allcells.length; i++) {
         // console.log(rid,cid);
         addressElem.value = `${String.fromCharCode(65 + cid)}${rid + 1}`; // to show name of cell in formula section
 
+        // tool bar
         let cellObj = sheetArr[rid][cid];
         if (cellObj.isBold == true) {
             bold.classList.add("menu-active");
@@ -107,7 +130,8 @@ for (let i = 0; i < Allcells.length; i++) {
         } else {
             underline.classList.remove("menu-active");
         }
-
+        fontSize.value = cellObj.fontSize;
+        fontFamily.value = cellObj.fontFamily;
     });
 }
 Allcells[0].click();
