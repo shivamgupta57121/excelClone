@@ -20,7 +20,7 @@ for (let i = 1; i <= rows; i++) {
 }
 // rows-> 100
 // col - > 26
-let sheetArr = [];
+sheetArr = [];
 for (let i = 0; i < rows; i++) {
     let row = document.createElement("div");
     row.setAttribute("class", "row");
@@ -44,7 +44,10 @@ for (let i = 0; i < rows; i++) {
             fontFamily: "sans-serif",
             color: "#000000",
             bgColor: "#90EE90",
-            halign:"center"
+            halign: "center",
+            value: "",
+            formula: "",
+            children: []
         }
         rowArr.push(cellObj);
     }

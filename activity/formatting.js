@@ -1,5 +1,6 @@
 let Allcells = document.querySelectorAll(".grid .cell");
 let addressElem = document.querySelector(".address");
+let formulaBar = document.querySelector(".formula");
 let bold = document.querySelector(".fa-bold");
 let italic = document.querySelector(".fa-italic");
 let underline = document.querySelector(".fa-underline");
@@ -180,6 +181,9 @@ for (let i = 0; i < Allcells.length; i++) {
         }
         color.value = cellObj.color;
         bgColor.value = cellObj.bgColor;
+
+        /**************************** Formula Update ******************************/
+        formulaBar.value = cellObj.formula;
     });
 }
 Allcells[0].click();
