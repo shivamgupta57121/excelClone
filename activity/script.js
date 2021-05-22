@@ -2,6 +2,7 @@ let iconContainer = document.querySelector(".icon-container");
 let sheetList = document.querySelector(".sheet-list");
 let firstSheet = document.querySelector(".sheet");
 firstSheet.addEventListener("click", handleClick);
+firstSheet.click();
 // add event listener
 iconContainer.addEventListener("click", function () {
     // create new sheet
@@ -23,6 +24,8 @@ iconContainer.addEventListener("click", function () {
 
     // put sheet color to the current
     newSheet.addEventListener("click", handleClick);
+    // click the new sheet to set sheetDB
+    newSheet.click();
 });
 
 // function to set last sheet as active
@@ -35,6 +38,7 @@ function setLastActive() {
 }
 
 // function to set clicked sheet as active
+// also create new sheet, set UI and set current sheet in sheetArr
 function handleClick(e) {
     // console.log(e); // currentTarget property of e - null but that exists
     // console.log(e.currentTarget);
@@ -44,4 +48,21 @@ function handleClick(e) {
         allSheets[i].classList.remove("active");
     }
     sheet.classList.add("active");
+
+    // sheet change at UI - sync UI from DB 
+    let idx = sheet.getAttribute("idx");
+    if (idx == 0 && sheetListArr.length == 0) {
+        initSheetDB();
+        sheetArr = sheetListArr[0];
+    } else {
+        // create a new sheet
+        if (sheetListArr[idx] == undefined) {
+            initSheetDB();
+            sheetArr = sheetListArr[idx];
+        } else {
+            // switch sheet
+            sheetArr = sheetListArr[idx];
+        }
+        setUI(sheetArr);
+    }
 }

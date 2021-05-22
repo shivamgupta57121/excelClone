@@ -55,6 +55,8 @@ formulaBar.addEventListener("keydown", function (e) {
         setCell(val, rid, cid, cFormula);
         // set self as children in Parent 
         setFormula(cFormula, addressElem.value);
+        // to re evaluate children as current cell has been changed
+        updateChildren(cellObj);
     }
 })
 
